@@ -33,7 +33,7 @@ public class PayControler {
     }
 
     @PatchMapping("/v2/{id}")
-    private String payment(@PathVariable UUID id, @RequestBody PaymentDto paymentDto) {
+    public String payment(@PathVariable UUID id, @RequestBody PaymentDto paymentDto) {
         paymentUseCase.payment(id,paymentDto);
         return "Pagamento realizado com sucesso";
     }
