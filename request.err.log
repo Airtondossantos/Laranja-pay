@@ -1,0 +1,9 @@
+﻿Invoke-RestMethod : O servidor remoto retornou um erro: (500) Erro Interno do Servidor.
+No linha:2 caractere:458
++ ... s 10; try { Invoke-RestMethod -Method Post -Uri 'http://localhost:808 ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-RestMethod], WebExc 
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeRestMethodCommand
+ 
+
