@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.UUID;
 
 @Entity(name = "accounts")
@@ -16,14 +15,7 @@ public class AccountModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-
     private BigDecimal balance;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "receiverAccount")
-    private List<TransactionModel> receivertransactions;
-
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "senderAccount")
-    private List<TransactionModel> sendertransactions;
 
     @OneToOne
     @JoinColumn(name = "user_id")
