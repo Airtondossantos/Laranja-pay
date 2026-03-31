@@ -4,6 +4,7 @@ import com.airton.laranja_pay.model.AccountModel;
 import com.airton.laranja_pay.model.TransactionModel;
 import lombok.Getter;
 import lombok.Setter;
+import org.jspecify.annotations.NonNull;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,7 +19,7 @@ public class AccountDto {
     private List<TransactionModel> receivertransactions;
     private List<TransactionModel> sendertransactions;
 
-    public AccountDto(AccountModel account) {
+    public AccountDto(@NonNull AccountModel account) {
         this.id = account.getId();
         this.userName = account.getUser().getUsername();
         this.balance = account.getBalance();

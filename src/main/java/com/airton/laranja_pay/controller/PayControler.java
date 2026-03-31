@@ -32,9 +32,9 @@ public class PayControler {
         return "Deposito realizado com sucesso";
     }
 
-    @PatchMapping("/v2/{id}")
-    public String payment(@PathVariable UUID id, @RequestBody PaymentDto paymentDto) {
-        paymentUseCase.payment(id,paymentDto);
+    @PostMapping("/v2/{idSender}")
+    public String payment(@PathVariable UUID idSender, @RequestBody PaymentDto paymentDto) {
+        paymentUseCase.payment(idSender, paymentDto.getIdReceiver(), paymentDto);
         return "Pagamento realizado com sucesso";
     }
 
