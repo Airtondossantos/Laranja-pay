@@ -1,7 +1,7 @@
 package com.airton.laranja_pay.controller;
 
-import com.airton.laranja_pay.UseCase.DepositUseCase;
-import com.airton.laranja_pay.UseCase.PaymentUseCase;
+import com.airton.laranja_pay.useCase.DepositUseCase;
+import com.airton.laranja_pay.useCase.PaymentUseCase;
 import com.airton.laranja_pay.dto.DepositDto;
 
 import com.airton.laranja_pay.dto.PaymentDto;

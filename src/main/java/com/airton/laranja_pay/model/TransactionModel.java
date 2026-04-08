@@ -1,9 +1,7 @@
 package com.airton.laranja_pay.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.airton.laranja_pay.model.Enum.TypeTransaction;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,8 +15,10 @@ import java.util.UUID;
 public class TransactionModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private BigDecimal value;
+    private TypeTransaction typeTransaction;
 
 
     @ManyToOne

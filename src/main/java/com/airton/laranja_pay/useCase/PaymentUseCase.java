@@ -1,7 +1,8 @@
-package com.airton.laranja_pay.UseCase;
+package com.airton.laranja_pay.useCase;
 
 import com.airton.laranja_pay.dto.PaymentDto;
 import com.airton.laranja_pay.model.AccountModel;
+import com.airton.laranja_pay.model.Enum.TypeTransaction;
 import com.airton.laranja_pay.model.TransactionModel;
 import com.airton.laranja_pay.repository.AccountRepository;
 import com.airton.laranja_pay.repository.TransactionRepository;
@@ -35,6 +36,7 @@ public class PaymentUseCase {
         transaction.setValue(paymentDto.getValue());
         transaction.setSenderAccount(accountSender);
         transaction.setReceiverAccount(accountReceiver);
+        transaction.setTypeTransaction(TypeTransaction.PAYMENT);
         transactionRepository.save(transaction);
     }
 

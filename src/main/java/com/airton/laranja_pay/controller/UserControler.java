@@ -1,7 +1,6 @@
 package com.airton.laranja_pay.controller;
 
 import com.airton.laranja_pay.dto.AccountDto;
-import com.airton.laranja_pay.model.AccountModel;
 import com.airton.laranja_pay.model.UserModel;
 import com.airton.laranja_pay.repository.AccountRepository;
 import com.airton.laranja_pay.repository.UserRepository;
@@ -30,7 +29,7 @@ public class UserControler {
 
     @PostMapping
     public UserModel create(@RequestBody UserModel user) {
-       repository.save(user);
+        repository.save(user);
        return user;
     }
 

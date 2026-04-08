@@ -1,5 +1,6 @@
 package com.airton.laranja_pay.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
