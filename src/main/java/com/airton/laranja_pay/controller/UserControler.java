@@ -1,6 +1,7 @@
 package com.airton.laranja_pay.controller;
 
 import com.airton.laranja_pay.dto.AccountDto;
+import com.airton.laranja_pay.dto.UserDto;
 import com.airton.laranja_pay.model.UserModel;
 import com.airton.laranja_pay.repository.AccountRepository;
 import com.airton.laranja_pay.repository.UserRepository;
@@ -31,9 +32,9 @@ public class UserControler {
     }
 
     @PostMapping
-    public UserModel create(@RequestBody UserModel user) {
+    public UserDto create(@RequestBody UserDto user) {
         createUserUseCase.creatUser(user);
-       return user;
+        return user;
     }
 
     @DeleteMapping("{id}")
@@ -42,7 +43,7 @@ public class UserControler {
     }
 
     @GetMapping("/account/{id}")
-    public AccountDto get(@PathVariable UUID id){
+    public AccountDto get(@PathVariable UUID id) {
         return new AccountDto(accountrepository.findById(id).orElseThrow());
     }
 }
