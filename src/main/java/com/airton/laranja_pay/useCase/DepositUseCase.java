@@ -31,7 +31,7 @@ public class DepositUseCase {
         TransactionModel transaction = new TransactionModel();
         transaction.setTypeTransaction(TypeTransaction.DEPOSIT);
         transaction.setValue(value);
-        transaction.setSenderAccount(account);
+        transaction.setReceiverAccount(account);
         transactionRepository.save(transaction);
 
 

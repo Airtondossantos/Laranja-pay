@@ -22,13 +22,13 @@ public class PayControler {
         this.paymentUseCase = paymentUseCase;
     }
 
-    @PatchMapping("/{id}")
+    @PostMapping("/{id}")
     public String deposit(@PathVariable UUID id, @RequestBody DepositDto depositDto) {
         depositUseCase.deposit(id, depositDto.getValue());
         return "Deposito realizado com sucesso";
     }
 
-    @PostMapping("/v2/{idSender}")
+    @PostMapping("/v1/{idSender}")
     public String payment(@PathVariable UUID idSender, @RequestBody PaymentDto paymentDto) {
         paymentUseCase.payment(idSender, paymentDto.getIdReceiver(), paymentDto);
         return "Pagamento realizado com sucesso";
