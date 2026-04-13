@@ -5,8 +5,6 @@ import com.airton.laranja_pay.useCase.PaymentUseCase;
 import com.airton.laranja_pay.dto.DepositDto;
 
 import com.airton.laranja_pay.dto.PaymentDto;
-import com.airton.laranja_pay.model.AccountModel;
-import com.airton.laranja_pay.repository.AccountRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -16,12 +14,10 @@ import java.util.UUID;
 @RequestMapping("/v1/laranjapay")
 public class PayControler {
 
-    private final AccountRepository accountRepository;
     private final DepositUseCase depositUseCase;
     private final PaymentUseCase paymentUseCase;
 
-    public PayControler(AccountRepository accountRepository, DepositUseCase depositUseCase, PaymentUseCase paymentUseCase) {
-        this.accountRepository = accountRepository;
+    public PayControler(DepositUseCase depositUseCase, PaymentUseCase paymentUseCase) {
         this.depositUseCase = depositUseCase;
         this.paymentUseCase = paymentUseCase;
     }
@@ -36,12 +32,6 @@ public class PayControler {
     public String payment(@PathVariable UUID idSender, @RequestBody PaymentDto paymentDto) {
         paymentUseCase.payment(idSender, paymentDto.getIdReceiver(), paymentDto);
         return "Pagamento realizado com sucesso";
-    }
-
-    @PostMapping("/account")
-    public AccountModel createNewAccount(@RequestBody AccountModel account){
-        accountRepository.save(account);
-        return account;
     }
 
 }

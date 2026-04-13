@@ -4,6 +4,7 @@ import com.airton.laranja_pay.dto.AccountDto;
 import com.airton.laranja_pay.model.UserModel;
 import com.airton.laranja_pay.repository.AccountRepository;
 import com.airton.laranja_pay.repository.UserRepository;
+import com.airton.laranja_pay.useCase.CreateUserUseCase;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -16,10 +17,12 @@ public class UserControler {
 
     private final UserRepository repository;
     private final AccountRepository accountrepository;
+    private final CreateUserUseCase createUserUseCase;
 
-    public UserControler(UserRepository repository, AccountRepository accountrepository) {
+    public UserControler(UserRepository repository, AccountRepository accountrepository, CreateUserUseCase createUserUseCase) {
         this.repository = repository;
         this.accountrepository = accountrepository;
+        this.createUserUseCase = createUserUseCase;
     }
 
     @GetMapping("{id}")
@@ -29,7 +32,7 @@ public class UserControler {
 
     @PostMapping
     public UserModel create(@RequestBody UserModel user) {
-        repository.save(user);
+        createUserUseCase.creatUser(user);
        return user;
     }
 
