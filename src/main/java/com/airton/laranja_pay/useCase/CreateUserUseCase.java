@@ -5,15 +5,11 @@ import com.airton.laranja_pay.model.AccountModel;
 import com.airton.laranja_pay.model.UserModel;
 import com.airton.laranja_pay.repository.AccountRepository;
 import com.airton.laranja_pay.repository.UserRepository;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
 @Service
-@Getter
-@Setter
 public class CreateUserUseCase {
 
     private final UserRepository userRepository;
