@@ -6,8 +6,10 @@ import com.airton.laranja_pay.model.Enum.TypeTransaction;
 import com.airton.laranja_pay.model.TransactionModel;
 import com.airton.laranja_pay.repository.AccountRepository;
 import com.airton.laranja_pay.repository.TransactionRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
 
@@ -24,6 +26,10 @@ public class PaymentUseCase {
 
     @Transactional
     public void payment(UUID idSender,UUID idReceiver, PaymentDto paymentDto) {
+        if(idSender.equals(idReceiver)){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Transferência para a mesma conta não é permitida");
+        }
+
         AccountModel accountSender = accountRepository.findById(idSender).orElseThrow();
         AccountModel accountReceiver = accountRepository.findById(idReceiver).orElseThrow();
 
