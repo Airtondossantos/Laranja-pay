@@ -20,7 +20,7 @@ public class CreateUserUseCase {
         this.accountRepository = accountRepository;
     }
 
-    public void creatUser(UserDto user){
+    public void createuser(UserDto user){
 
         UserModel userModel = new UserModel();
         userModel.setUsername(user.getUsername());

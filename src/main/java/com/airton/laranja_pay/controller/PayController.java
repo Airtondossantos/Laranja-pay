@@ -16,13 +16,13 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/laranjapay")
-public class PayControler {
+public class PayController {
 
     private final DepositUseCase depositUseCase;
     private final PaymentUseCase paymentUseCase;
     private final StatementUseCase StatementUseCase;
 
-    public PayControler(DepositUseCase depositUseCase, PaymentUseCase paymentUseCase, StatementUseCase statementUseCase) {
+    public PayController(DepositUseCase depositUseCase, PaymentUseCase paymentUseCase, StatementUseCase statementUseCase) {
         this.depositUseCase = depositUseCase;
         this.paymentUseCase = paymentUseCase;
         StatementUseCase = statementUseCase;

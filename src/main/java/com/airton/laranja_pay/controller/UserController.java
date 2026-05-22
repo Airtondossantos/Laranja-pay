@@ -13,14 +13,14 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/user")
-public class UserControler {
+public class UserController {
 
 
     private final UserRepository repository;
     private final AccountRepository accountrepository;
     private final CreateUserUseCase createUserUseCase;
 
-    public UserControler(UserRepository repository, AccountRepository accountrepository, CreateUserUseCase createUserUseCase) {
+    public UserController(UserRepository repository, AccountRepository accountrepository, CreateUserUseCase createUserUseCase) {
         this.repository = repository;
         this.accountrepository = accountrepository;
         this.createUserUseCase = createUserUseCase;
@@ -33,7 +33,7 @@ public class UserControler {
 
     @PostMapping
     public UserDto create(@RequestBody UserDto user) {
-        createUserUseCase.creatUser(user);
+        createUserUseCase.createuser(user);
         return user;
     }
 
