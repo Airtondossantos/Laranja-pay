@@ -21,7 +21,7 @@ public class TransactionModel {
     private UUID id;
     private BigDecimal value;
     private TypeTransaction typeTransaction;
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
 
     @ManyToOne
